@@ -38,22 +38,22 @@ function Navigation() {
           scrolled ? 'bg-darkblue' : 'bg-transparent'
         }`}
       >
-        <div className='md:px-30 md:py-8 px-10 py-8 flex justify-between flex-row items-center'>
-          <div className='md:flex hidden'>
+        <div className='md:px-30 md:py-10 px-10 py-8 flex justify-between flex-row items-center'>
+          <div className='lg:flex hidden'>
             <h1 className='font-akagi text-2xl cursor-pointer font-black tracking-wide text-white text-shadow-lg hover:text-yellow transition-all duration-300 hover:scale-110'>
               3JRemy
             </h1>
           </div>
 
           {/*Mobile Menu Button*/}
-            <div className='md:hidden flex'>
+            <div className='lg:hidden flex'>
               <button onClick={() => setMenu(prev => !prev)}
                 className='text-3xl text-white'>
                   {menu ? <IoClose /> : <IoMenu />}
                 </button>
             </div>
 
-          <ul className='hidden md:flex flex flex-row gap-15'>
+          <ul className='hidden lg:flex flex flex-row gap-15'>
             <li className={navDesign}>Home</li>
             <li className={navDesign}>Rents</li>
             <li className={navDesign}>Reservations</li>

@@ -1,4 +1,5 @@
 import Navigation from './Navigation'
+import Inventory from './Inventory'
 
 function LandingPage() {
 
@@ -50,7 +51,7 @@ function LandingPage() {
 
           </div>
         </div>
-
+        <Inventory />
         <div className='min-w-full min-h-screen bg-[#F7F7F7]'></div>
         <div className='min-w-full min-h-screen bg-blue-800'></div>
         
