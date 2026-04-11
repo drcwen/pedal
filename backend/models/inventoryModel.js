@@ -1,34 +1,35 @@
 
 const mongoose = require('mongoose');
 
-const inventorySchema = new mongoose.Schema({
+const modelSchema = new mongoose.Schema({
     
-    bikeId: {
+    modelId: {
         type: String,
         required: true,
         unique: true
     },
 
-    bikeName : {
+    modelName : {
         type: String,
         required: true,
         unique: true
     },
 
-    bikeCategory: {
+    modelType: {
         type: String,
         required: true,
     },
 
-    bikePrice : {
+    rentalRatePerHour : {
         type: Number,
         required: true
     },
 
-    isForKids : {
-        type: Boolean,
+    modelImage: {
+        type: String,
         required: true
     }
+
 })
 
-module.exports = mongoose.model('Inventory', inventorySchema);    
+module.exports = mongoose.model('Model', modelSchema);    

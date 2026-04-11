@@ -13,4 +13,14 @@ router.post('/', async (req, res) => {
     }
 })
 
+router.get('/', async (req, res) => {
+    try {
+        const getBikes = await inventoryModel.findOne();
+
+        res.status(200).json(getBikes);
+    } catch(err) {
+        res.status(500).json({message: err.message});
+    }
+})
+
 module.exports = router;
