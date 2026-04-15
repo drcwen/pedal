@@ -5,13 +5,28 @@ import { GrFormPrevious } from "react-icons/gr";
 
 function LandingBikes() {
 
-  const [bike, setBike] = useState(null);
+  const [bikes, setBikes] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const visibleBikes = bikes.slice(currentIndex, currentIndex + 2);
+
+  const nextBike = () => {
+    setCurrentIndex((prev) =>
+      prev + 2 >= bikes.length ? 0 : prev + 2
+    );
+  };
+
+  const prevBike = () => {
+  setCurrentIndex((prev) =>
+    prev - 2 < 0 ? bikes.length - 2 : prev - 2
+  );
+};
 
   useEffect(() => {
   axios.get("http://localhost:4000/inventory")
     .then(res => {
       console.log("DATA:", res.data);
-      setBike(res.data);
+      setBikes(res.data);
     })
     .catch(err => console.log(err));
 }, []);
@@ -20,55 +35,39 @@ function LandingBikes() {
     <>
         <div className='min-w-full min-h-screen bg-[#F7F7F7] px-20 py-25 flex flex-col gap-10'>
 
+          
           {/*Solo Bikes*/}
           <div className='flex flex-col gap-5'>
             <h1 className='font-akagi text-3xl font-black text-blue tracking-wide'>Solo Bikes</h1>
             
             <div className='w-full flex justify-between items-center'>
               
-              <GrFormPrevious className='text-5xl text-blue'/>
+              <GrFormPrevious 
+                onClick={prevBike}
+                className='text-5xl cursor-pointer'
+              />
               
                 <div className='flex flex-row gap-5'>
-                 
-                  <div className=''>
-                    <img src={bike.modelImage} className='w-50'></img>
-                  </div>
-             
-                  <div className='flex flex-col gap-2 justify-center'>
-                    <h1 className='text-3xl font-bold font-akagi text-darkblue'>{bike.modelName}</h1>
-                    <h1 className='text-xl font-bold font-akagi text-gray'>{bike.rentalRatePerHour}/hr</h1>
-                    <button className='w-fit bg-blue font-bold font-akagi text-white rounded-lg px-4 py-1 text-lg'>Reserve</button>
-                  </div>
-                  
+                  {visibleBikes.map((bike) => (
+                    <div key={bike._id} className='flex gap-5'>
+                      
+                      <div>
+                        <img src={bike.modelImage} className='w-50' />
+                      </div>
+
+                      <div className='flex flex-col justify-center'>
+                        <h1 className='text-3xl font-bold'>{bike.modelName}</h1>
+                        <h1>{bike.rentalRatePerHour}/hr</h1>
+                      </div>
+
+                    </div>
+                  ))}
                 </div>
 
-              <MdOutlineNavigateNext className='text-5xl text-blue'/>
-            </div>
-          </div>
-
-          {/*Solo Bikes*/}
-          <div className='flex flex-col gap-5'>
-            <h1 className='font-akagi text-3xl font-black text-blue tracking-wide'>Solo Bikes</h1>
-            
-            <div className='w-full flex justify-between items-center'>
-              
-              <GrFormPrevious className='text-5xl text-blue'/>
-              
-                <div className='flex flex-row gap-5'>
-                 
-                  <div className=''>
-                    <img src={bike.modelImage} className='w-50'></img>
-                  </div>
-             
-                  <div className='flex flex-col gap-2 justify-center'>
-                    <h1 className='text-3xl font-bold font-akagi text-darkblue'>{bike.modelName}</h1>
-                    <h1 className='text-xl font-bold font-akagi text-gray'>{bike.rentalRatePerHour}/hr</h1>
-                    <button className='w-fit bg-blue font-bold font-akagi text-white rounded-lg px-4 py-1 text-lg'>Reserve</button>
-                  </div>
-                  
-                </div>
-
-              <MdOutlineNavigateNext className='text-5xl text-blue'/>
+              <MdOutlineNavigateNext 
+                onClick={nextBike}
+                className='text-5xl cursor-pointer'
+              />
             </div>
           </div>
           

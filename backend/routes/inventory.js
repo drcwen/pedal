@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
     try {
-        const getBikes = await inventoryModel.findOne();
+        const getBikes = await inventoryModel.find();
 
         res.status(200).json(getBikes);
     } catch(err) {
