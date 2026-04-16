@@ -1,6 +1,7 @@
 import Navigation from './Navigation'
 import LandingBikes from './LandingBikes'
 import { motion } from "motion/react"
+import Gallery from './Gallery'
 
 function LandingPage() {
 
@@ -84,8 +85,10 @@ function LandingPage() {
 
         <LandingBikes />
 
-        <div className='min-w-full min-h-screen bg-navyblue'>
-          
+        <Gallery />
+
+        <div className='min-w-full min-h-screen bg-white'>
+
         </div>
         
       </div>
