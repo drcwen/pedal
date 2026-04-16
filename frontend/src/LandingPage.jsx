@@ -84,7 +84,9 @@ function LandingPage() {
 
         <LandingBikes />
 
-        <div className='min-w-full min-h-screen bg-blue-800'></div>
+        <div className='min-w-full min-h-screen bg-navyblue'>
+          
+        </div>
         
       </div>
     </>
