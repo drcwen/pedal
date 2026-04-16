@@ -73,10 +73,15 @@ function LandingPage() {
 
               <div className='flex flex-row gap-4'>
 
-                
-                    <div className='px-5 py-2 border border-3 border-yellow w-fit rounded-md'>
+                <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    onHoverStart={() => console.log('hover started!')}
+                  >
+                  <div className='px-5 py-2 border border-3 border-yellow w-fit rounded-md'>
                       <h1 className='text-md font-akagi font-black text-yellow'>Reserve</h1>
-                    </div>
+                  </div>
+                </motion.button>
 
               </div>
 

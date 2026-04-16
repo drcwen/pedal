@@ -181,9 +181,16 @@ function LandingBikes() {
                           <h1 className='font-bold font-akagi text-2xl text-darkblue'>{bike.modelName}</h1>
                           <h1 className='font-bold font-akagi text-lg text-gray'>{bike.rentalRatePerHour}/hr</h1>
                         </div>
-                        <button className='px-3 py-2 bg-blue rounded-lg w-fit items-center justify-center'>
-                          <h1 className='font-akagi font-bold text-white'>Reserve</h1>
-                        </button>
+
+                        <motion.button
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.95 }}
+                          onHoverStart={() => console.log('hover started!')}
+                        >
+                          <button className='px-3 py-2 bg-blue rounded-lg w-fit items-center justify-center'>
+                            <h1 className='font-akagi font-bold text-white'>Reserve</h1>
+                          </button>
+                        </motion.button>
                       </div>
 
                     </div>
@@ -295,9 +302,16 @@ function LandingBikes() {
                           <h1 className='font-bold font-akagi text-2xl text-darkblue'>{bike.modelName}</h1>
                           <h1 className='font-bold font-akagi text-lg text-gray'>{bike.rentalRatePerHour}/hr</h1>
                         </div>
-                        <button className='px-3 py-2 bg-blue rounded-lg w-fit items-center justify-center'>
-                          <h1 className='font-akagi font-bold text-white'>Reserve</h1>
-                        </button>
+
+                        <motion.button
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.95 }}
+                          onHoverStart={() => console.log('hover started!')}
+                        >
+                          <button className='px-3 py-2 bg-blue rounded-lg w-fit items-center justify-center'>
+                            <h1 className='font-akagi font-bold text-white'>Reserve</h1>
+                          </button>
+                        </motion.button>
                       </div>
 
                     </div>
